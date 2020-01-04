@@ -1,0 +1,3 @@
+# springboot_dynamic_datasource
+基于MyCat的SpringBoot动态切换数据源
+目的:达到读写分离效果。
