@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tang.test.mapper.OrderMapper">
+
+  <resultMap id="BaseResultMap" type="com.tang.test.domain.Order">
+    <!--@mbg.generated-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="order_createtime" jdbcType="TIMESTAMP" property="orderCreatetime" />
+    <result column="order_state" jdbcType="INTEGER" property="orderState" />
+    <result column="order_money" jdbcType="DOUBLE" property="orderMoney" />
+    <result column="commodity_id" jdbcType="INTEGER" property="commodityId" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, order_createtime, order_state, order_money, commodity_id
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from order_
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.tang.test.domain.Order" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into order_(`name`, order_createtime, order_state,order_money, commodity_id) values (#{name,jdbcType=VARCHAR}, #{orderCreatetime,jdbcType=TIMESTAMP}, #{orderState,jdbcType=INTEGER},
+      #{orderMoney,jdbcType=DOUBLE}, #{commodityId,jdbcType=INTEGER})
+  </insert>
+
+
+</mapper>
